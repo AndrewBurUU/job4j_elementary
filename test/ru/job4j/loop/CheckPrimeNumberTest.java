@@ -25,4 +25,5 @@ public class CheckPrimeNumberTest {
         assertThat(rsl, is(false));
     }
     /**/
+    /**/
 }
