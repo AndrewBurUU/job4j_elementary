@@ -5,8 +5,8 @@ public class EndsWith {
         boolean result = true;
         int dLength = word.length - post.length;
         /* проверить. что массив word имеет последние элементы одинаковые с post */
-        for (int index = post.length - 1; index >= 0; index--) {
-            if (word[index + dLength] != post[index]) {
+        for (int index = 0; index < post.length; index++) {
+            if (word[word.length - index - 1] != post[post.length - index - 1]) {
                 result = false;
                 break;
             }
