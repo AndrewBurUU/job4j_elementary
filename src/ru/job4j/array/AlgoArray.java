@@ -18,7 +18,6 @@ public class AlgoArray {
             array[index] = min; /* записываем в ячейку с индексом 0 значение ячейки с индексом 3. */
             array[minIndex] = temp; /* записываем в ячейку с индексом 3 значение временной переменной. */
         }
-
         for (int index = 0; index < array.length; index++) {
             System.out.println(array[index]);
         }
