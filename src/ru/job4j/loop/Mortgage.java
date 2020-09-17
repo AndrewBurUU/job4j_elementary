@@ -1,5 +1,7 @@
 package ru.job4j.loop;
 
+import java.util.Arrays;
+
 public class Mortgage {
     public static int year(int amount, int salary, double percent) {
         int year = 0;
@@ -9,5 +11,10 @@ public class Mortgage {
             year++;
         }
         return year;
+    }
+
+    public static void main(String[] args) {
+        int res = year(2000000, 300000, 6.1);
+        System.out.println("ages = " + String.valueOf(res));
     }
 }
