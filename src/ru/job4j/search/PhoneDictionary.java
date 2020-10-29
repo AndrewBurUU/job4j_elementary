@@ -10,13 +10,12 @@ public class PhoneDictionary {
         this.persons.add(person);
     }
     public ArrayList<Person> find(String key) {
-        Predicate<Person> combine = new Predicate<Person>() {
-            @Override
-            public boolean test(Person person) {
-                return person.getName().contains(key) || person.getSurname().contains(key) ||
-                        person.getAddress().contains(key) || person.getPhone().contains(key);
-            }
-        };
+        Predicate<Person> combineName = person -> person.getName().contains(key);
+        Predicate<Person> combineSurName = person -> person.getSurname().contains(key);
+        Predicate<Person> combineAddress = person -> person.getAddress().contains(key);
+        Predicate<Person> combinePhone = person -> person.getPhone().contains(key);
+        Predicate<Person> combine = combineName.or(combineSurName.or(combineAddress.or(combinePhone)));
+
         ArrayList<Person> result = new ArrayList<>();
         for (Person person : persons) {
             if (combine.test(person)) {
