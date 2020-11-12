@@ -61,4 +61,21 @@ public class SchoolTest {
         expected.add(new Student(40, "Surname4"));
         assertThat(rsl, is(expected));
     }
+
+    @Test
+    public void whenStudentMap() {
+        List<Student> studentList = new ArrayList<>();
+        studentList.add(new Student(10, "Johnson"));
+        studentList.add(new Student(5, "White"));
+        studentList.add(new Student(10, "Johnson"));
+        studentList.add(new Student(115, "Hergusson"));
+        StudentMap studentMap = new StudentMap();
+        List<Student> rsl = studentMap.collect(studentList);
+        List<Student> expected = new ArrayList<>();
+        studentList.add(new Student(115, "Hergusson"));
+        studentList.add(new Student(10, "Johnson"));
+        studentList.add(new Student(5, "White"));
+        assertThat(rsl, is(expected));
+    }
+
 }
