@@ -2,15 +2,19 @@ package ru.job4j.stream;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StudentMap {
         List<Student> collect(List<Student> students) {
-            return students.stream()
-            .distinct()
+            return (List<Student>) students.stream()
             .collect(Collectors.toMap(
                     student -> student.getSurname(),
-                    student -> student))
+                    student -> student,
+                    (existing, replacement) -> existing));
         };
         /*
         Integer[][] matrix = new Integer[1][2];
