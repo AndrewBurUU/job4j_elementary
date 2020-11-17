@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StudentMap {
-        List<Student> collect(List<Student> students) {
-            return (List<Student>) students.stream()
+        public Map<String,Student> collect(List<Student> students) {
+            return students.stream()
             .collect(Collectors.toMap(
                     student -> student.getSurname(),
                     student -> student,

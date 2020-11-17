@@ -4,7 +4,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Predicate;
 
 import static org.hamcrest.core.Is.is;
@@ -69,12 +71,11 @@ public class SchoolTest {
         studentList.add(new Student(5, "White"));
         studentList.add(new Student(10, "Johnson"));
         studentList.add(new Student(115, "Hergusson"));
-        StudentMap studentMap = new StudentMap();
-        List<Student> rsl = studentMap.collect(studentList);
-        List<Student> expected = new ArrayList<>();
-        studentList.add(new Student(115, "Hergusson"));
-        studentList.add(new Student(10, "Johnson"));
-        studentList.add(new Student(5, "White"));
+        Map<String,Student> rsl = new StudentMap().collect(studentList);
+        Map<String,Student> expected = new HashMap<>();
+        expected.put("Hergusson", new Student(115, "Hergusson"));
+        expected.put("Johnson", new Student(10, "Johnson"));
+        expected.put("White", new Student(5, "White"));
         assertThat(rsl, is(expected));
     }
 
