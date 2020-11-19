@@ -23,10 +23,8 @@ public class BankService {
     }
 
     public User findByPassport(String passport) {
-        List<User> userList = Stream.of(users)
+        return  Stream.of(users)
                 .flatMap(user -> user.keySet().stream())
-                .collect(Collectors.toList());
-        return userList.stream()
                 .filter(user -> user.getPassport().equals(passport))
                 .findFirst()
                 .orElse(null);
