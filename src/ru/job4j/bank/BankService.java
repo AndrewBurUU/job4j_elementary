@@ -35,7 +35,7 @@ public class BankService {
         return user.isPresent() ?
                 users.get(user.get()).stream()
                 .filter(account -> account.getRequisite().equals(requisite))
-                .findFirst() : null;
+                .findFirst() : Optional.empty();
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
