@@ -7,8 +7,8 @@ import java.util.function.Predicate;
 
 public class EasyStream {
     public static EasyStream of(List<Integer> source) {
-//        throw new UnsupportedOperationException();
-        return new EasyStream(this);
+        throw new UnsupportedOperationException();
+//        return new EasyStream(this);
     }
 
     public EasyStream map(Function<Integer, Integer> fun) {
